@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>Insert title here</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link th:href="@{/mostrar.css}" rel="stylesheet" />
+    <!--    <link th:href="@{/css/styles.css}" rel="stylesheet" id="bootstrap-css" />-->
+</head>
+<body>
+    <div class="container">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Modelo</th>
+                    <th>Precio</th>
+                    <th>Combustible</th>
+                    <th>Potencia</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <form action="#" th:action="@{/coches/eliminar}" method="post">
+                    <tr th:each="coche : ${listaCoches}">
+                        <td><span th:text="${coche.modelo}"></span></td>
+                        <td><span th:text="${coche.precio}+' €'"></span></td>
+                        <td><span th:text="${coche.combustible}"></span></td>
+                        <td><span th:text="${coche.potencia}"></span></td>
+
+                        <td><input type="checkbox" th:value="${coche.id}" th:name="cochesSeleccionados"/></td>
+
+                        <td><a th:href="@{/coches/busquedacoche/}+${coche.id}">Editar</a></td>
+                        <td><a th:href="@{/coches/coche/}+${coche.id}">Detalles</a></td>
+                    </tr>
+
+                    <div class="form-group" style="text-align:center; font-family: Montserrat;">
+                        <p style="text-align: right"><input type="submit" style="text-align: center; border: 1px solid white; background-color: black; color: white; margin-top: 20px; border-radius: 0px; width: 200px; margin-bottom: 15px" value="Eliminar seleccionados" class="btn botonvolver" /> </p>
+                    </div>
+                </form>
+            </tbody>
+        </table>
+
+        <div class="form-group" style="text-align:left; font-family: Montserrat;">
+            <a th:href="@{/coches/inicio}">
+                <button style="text-align: center; border: 1px solid white; background-color: black; color: white; margin-top: 20px; border-radius: 0px;"
+                        class="btn botonvolver">Volver</button>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

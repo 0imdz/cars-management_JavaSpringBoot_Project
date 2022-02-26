@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>Insert title here</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link th:href="@{/anyadir.css}" rel="stylesheet"/>
+    <!--    <link th:href="@{/css/styles.css}" rel="stylesheet" id="bootstrap-css" />-->
+</head>
+<body>
+<!-- FORMULARIO-->
+<div id="login">
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div id="login-box" class="col-md-12">
+                    <form id="login-form" style="color: black" class="form" th:action="@{/coches/anyadir}" th:object="${coches}" method="post">
+
+                        <div class="form-group" style="margin-bottom: 4vh">
+                            <label th:for="${coches.marca}">Marca</label>
+                            </br>
+<!--                            <label class="error" th:if="${#fields.hasErrors('modelo')}" th:errors="*{modelo}"></label>-->
+<!--                            <br/>-->
+                            <div class="form-group">
+                                <select readonly="readonly" th:field="${coches.marca}" style="background-color: black; border-radius:0px; color: #90AEDA; font-family: Montserrat">
+                                    <option value="Mercedes-Benz">Mercedes-Benz</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 4vh">
+                            <label th:for="${coches.modelo}">Modelo</label>
+                            </br>
+                            <label class="error" th:if="${#fields.hasErrors('modelo')}" th:errors="*{modelo}"></label>
+                            <br/>
+                            <div class="form-group">
+                                <select th:field="${coches.modelo}" style="background-color: black; border-radius:0px; color: #90AEDA; font-family: Montserrat">
+                                    <option value=""></option>
+                                    <option value="Clase-C">Clase-C</option>
+                                    <option value="Clase-E">Clase-E</option>
+                                    <option value="Clase-S">Clase-S</option>
+                                    <option value="Clase-SLK">Clase-SLK</option>
+                                    <option value="Clase-V">Clase-V</option>
+                                    <option value="Viano">Viano</option>
+                                    <option value="Clase-CLK">Clase-CLK</option>
+                                    <option value="Clase-A">Clase-A</option>
+                                    <option value="Clase-M">Clase-M</option>
+                                    <option value="Vaneo">Vaneo</option>
+                                    <option value="SLR-Mclaren">SLR Mclaren</option>
+                                    <option value="Clase-CLS">Clase-CLS</option>
+                                    <option value="Clase-R">Clase-R</option>
+                                    <option value="Clase-GI">Clase-GI</option>
+                                    <option value="Clase-B">Clase-B</option>
+                                    <option value="100D">100D</option>
+                                    <option value="140D">140D</option>
+                                    <option value="180D">180D</option>
+                                    <option value="Sprinter">Sprinter</option>
+                                    <option value="Vito">Vito</option>
+                                    <option value="Transporter">Transporter</option>
+                                    <option value="280">280</option>
+                                    <option value="220">220</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Precio</label>
+                            </br>
+                            <label class="error" th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"></label>
+                            <br/>
+                            <input th:field="${coches.precio}" type="number" step="0.01" class="form-control" style="background-color: black; border-radius:0px; color: #90AEDA; font-family: Montserrat"/>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 4vh">
+                            <label>Combustible</label>
+                            <br/>
+                            <label class="error" th:if="${#fields.hasErrors('combustible')}" th:errors="*{combustible}"></label>
+                            <br/>
+                            <div class="checkboxstyle">
+                                <input type="radio" th:field="${coches.combustible}" value="Eléctrico">
+                                <label style="margin-right: 40px" th:for="${coches.combustible}">Eléctrico</label>
+
+                                <input type="radio" th:field="${coches.combustible}" value="Gasolina">
+                                <label style="margin-right: 40px" th:for="${coches.combustible}">Gasolina</label>
+
+                                <input type="radio" th:field="${coches.combustible}" value="Híbrido">
+                                <label style="margin-right: 40px" th:for="${coches.combustible}">Híbrido</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 4vh">
+                            <label th:for="${coches.potencia}">Potencia</label>
+                            </br>
+                            <label class="error" th:if="${#fields.hasErrors('potencia')}" th:errors="*{potencia}"></label>
+                            <br/>
+                            <div class="form-group">
+                                <select th:field="${coches.potencia}" style="background-color: black; border-radius:0px; color: #90AEDA; font-family: Montserrat">
+                                    <option value=""></option>
+                                    <option value="60 CV">60 CV</option>
+                                    <option value="80 CV">80 CV</option>
+                                    <option value="100 CV">100 CV</option>
+                                    <option value="120 CV">120 CV</option>
+                                    <option value="125 CV">125 CV</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 4vh">
+                            <label>Número de puertas</label>
+                            <br/>
+                            <label class="error" th:if="${#fields.hasErrors('numeropuertas')}" th:errors="*{numeropuertas}"></label>
+                            <br/>
+                            <div class="checkboxstyle">
+                                <input type="radio" th:field="${coches.numeropuertas}" value="1">
+                                <label style="margin-right: 40px" th:for="${coches.numeropuertas}">1</label>
+
+                                <input type="radio" th:field="${coches.numeropuertas}" value="2">
+                                <label style="margin-right: 40px" th:for="${coches.numeropuertas}">2</label>
+
+                                <input type="radio" th:field="${coches.numeropuertas}" value="3">
+                                <label style="margin-right: 40px" th:for="${coches.numeropuertas}">3</label>
+
+                                <input type="radio" th:field="${coches.numeropuertas}" value="4">
+                                <label style="margin-right: 40px" th:for="${coches.numeropuertas}">4</label>
+
+                                <input type="radio" th:field="${coches.numeropuertas}" value="5">
+                                <label style="margin-right: 40px" th:for="${coches.numeropuertas}">5</label>
+
+                                <input type="radio" th:field="${coches.numeropuertas}" value="6">
+                                <label style="margin-right: 40px" th:for="${coches.numeropuertas}">6</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Comentarios</label>
+                            <br/>
+                            <label class="error" th:if="${#fields.hasErrors('comentarios')}" th:errors="*{comentarios}"></label>
+                            <br/>
+                            <textarea th:field="${coches.comentarios}" rows="5" cols="49" style="background-color: black; border-radius:0px; color: #90AEDA; font-family: Montserrat">Escribe aquí tus comentarios</textarea>
+                        </div>
+
+                        <div class="form-group" style="text-align:center; font-family: Montserrat;">
+                            <input type="submit" style="background-color: #90AEDA; color: black; margin-top: 20px; border-radius: 0px; width: 100%" class="btn botonfin" value="Finalizar"/>
+                            <br/>
+                        </div>
+                    </form>
+
+                    <div class="form-group" style="text-align:center; font-family: Montserrat;">
+                        <a th:href="@{/coches/inicio}">
+                            <button style="text-align: center; border: 1px solid white; background-color: black; color: white; margin-top: 20px; border-radius: 0px;"
+                                    class="btn botonvolver">Volver
+                            </button>
+                        </a>
+                    </div>
+                    <br/>
+                    <br/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>
