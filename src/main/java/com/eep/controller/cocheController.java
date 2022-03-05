@@ -113,4 +113,10 @@ public class cocheController {
         cochesService.listCochesParaBorrar(cochesSeleccionados);
         return "redirect:/coches/mostrar";
     }
+
+    //BIENVENIDA
+    @GetMapping("/bienvenida")
+    public String bienvenida(Model model) {
+        return "bienvenida";
+    }
 }
